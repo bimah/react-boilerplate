@@ -1,6 +1,4 @@
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
@@ -8,14 +6,6 @@ module.exports = {
     app: ['babel-polyfill', './app/index.js'],
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
-    new HtmlWebpackPlugin({
-      inject: false,
-      template: require('html-webpack-template'),
-      title: 'Boilerplate',
-      appMountId: 'root',
-      mobile: true,
-    }),
     new StyleLintPlugin({
       syntax: 'scss',
     }),
@@ -36,7 +26,8 @@ module.exports = {
     ],
   },
   output: {
-    filename: 'bundle.js',
+    filename: './scripts/main.min.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
   },
 };

@@ -2,10 +2,13 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const WebpackRTLPlugin = require('webpack-rtl-plugin');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
   plugins: [
+    new CleanWebpackPlugin(['dist']),
     new UglifyJSPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
@@ -13,8 +16,9 @@ module.exports = merge(common, {
       },
     }),
     new ExtractTextPlugin({
-      filename: 'style.min.css',
+      filename: 'styles/main.min.css',
     }),
+    new WebpackRTLPlugin(),
   ],
   devtool: 'cheap-module-source-map',
   module: {
