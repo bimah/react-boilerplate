@@ -1,4 +1,3 @@
-const path = require('path');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
@@ -24,10 +23,5 @@ module.exports = {
         use: ['babel-loader', 'eslint-loader'],
       },
     ],
-  },
-  output: {
-    filename: './scripts/main.min.js',
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/',
   },
 };

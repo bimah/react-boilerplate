@@ -1,4 +1,5 @@
 const merge = require('webpack-merge');
+const path = require('path');
 const webpack = require('webpack');
 const common = require('./webpack.common.js');
 
@@ -37,5 +38,10 @@ module.exports = merge(common, {
         ],
       },
     ],
+  },
+  output: {
+    filename: '[name].js',
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
   },
 });

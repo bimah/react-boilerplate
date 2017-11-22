@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const path = require('path');
 const merge = require('webpack-merge');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -48,5 +49,10 @@ module.exports = merge(common, {
         }),
       },
     ],
+  },
+  output: {
+    filename: './scripts/main.min.js',
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
   },
 });
