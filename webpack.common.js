@@ -2,7 +2,7 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: ['babel-polyfill', './app/index.js'],
+    app: ['babel-polyfill', 'whatwg-fetch', './app/index.js'],
   },
   plugins: [
     new StyleLintPlugin({
