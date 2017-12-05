@@ -17,7 +17,7 @@
     "url": "https://github.com/bimah/react-boilerplate.git"
   },
   "pre-commit": [
-    "eslint",
+    "lint",
     "stylelint",
     "build"
   ],
