@@ -10,12 +10,13 @@ const common = require('./webpack.common.js');
 module.exports = merge(common, {
   plugins: [
     new CleanWebpackPlugin(['dist']),
-    new UglifyJSPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production'),
       },
     }),
+    new webpack.optimize.ModuleConcatenationPlugin(),
+    new UglifyJSPlugin(),
     new ExtractTextPlugin({
       filename: 'styles/main.min.css',
     }),
