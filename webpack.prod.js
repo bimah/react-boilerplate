@@ -19,7 +19,9 @@ module.exports = merge(common, {
     new ExtractTextPlugin({
       filename: 'styles/main.min.css',
     }),
-    new WebpackRTLPlugin(),
+    new WebpackRTLPlugin({
+      minify: false,
+    }),
   ],
   devtool: 'cheap-module-source-map',
   module: {
