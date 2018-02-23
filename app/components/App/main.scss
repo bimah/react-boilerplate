@@ -1,4 +1,10 @@
 .main {
   padding: 30px;
-  display: flex;
+
+  header,
+  main,
+  footer {
+    margin: 0;
+    padding: 0;
+  }
 }
