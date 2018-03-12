@@ -1,3 +1,7 @@
 .main-navigation {
   display: inline;
+
+  &__selected {
+    font-weight: bold;
+  }
 }
