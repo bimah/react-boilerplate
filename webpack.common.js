@@ -1,13 +1,11 @@
-const StyleLintPlugin = require('stylelint-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   entry: {
     app: ['babel-polyfill', 'whatwg-fetch', './app/index.js'],
   },
   plugins: [
-    new StyleLintPlugin({
-      syntax: 'scss',
-    }),
+    new webpack.LoaderOptionsPlugin({ options: {} }),
   ],
   module: {
     rules: [

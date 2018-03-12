@@ -4,7 +4,8 @@ node_modules
 .DS_Store
 
 # App dist
-dist
+dist/scripts
+dist/styles
 
 #cache
 .eslintcache

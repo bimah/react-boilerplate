@@ -1,27 +1,20 @@
 const webpack = require('webpack');
 const path = require('path');
 const merge = require('webpack-merge');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const WebpackRTLPlugin = require('webpack-rtl-plugin');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
+  mode: 'production',
   plugins: [
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(['dist/scripts', 'dist/styles']),
     new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production'),
-      },
+      'process.env.NODE_ENV': JSON.stringify('production'),
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
-    new UglifyJSPlugin(),
     new ExtractTextPlugin({
       filename: 'styles/main.min.css',
-    }),
-    new WebpackRTLPlugin({
-      minify: false,
     }),
   ],
   devtool: 'cheap-module-source-map',
